@@ -16,7 +16,7 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-	<td><%- photo.user_id %></td>
+	<td><%= photo.user_id %></td>
         <td><%= photo.name %></td>
         <td><%= photo.description %></td>
         <td><%= image_tag(photo.picture_url, :width => 200) if photo.picture.present? %></td>
