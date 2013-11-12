@@ -1,0 +1,42 @@
+<h1>Listing photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+<% if user_signed_in? %>
+      <th>Description</th>
+      <th>Tags</th>
+<% end %>
+      <th>Picture</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%= photo.name %></td>
+	<% if user_signed_in? %>
+        <td><%= photo.description %></td>
+	<td><%= photo.tags %></td>
+	<% end %>
+        <td><%= image_tag(photo.picture_url, :width => 200) if photo.picture.present? %></td>
+        <td><%= link_to 'Show', photo %></td>
+	<% if user_signed_in? %>
+	<td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+	<% if photo.user_id.match(current_user.email) %>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+	<% end %>
+	<% end %>
+	</tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+<%= link_to 'New Photo', new_photo_path %>
+<% else %>
+You Must Register Before Uploading Photos
+<% end %>
