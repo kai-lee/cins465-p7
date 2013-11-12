@@ -11,3 +11,45 @@
  *= require_self
  *= require_tree .
  */
+
+#usernav {
+padding 10px;
+left: 90%;
+padding-top: 10px;
+font-size: 16px;
+}
+
+body {
+background-image: image-url('/assets/wood.jpg');
+color: #000000;
+text-align: center;
+}
+
+h1 {
+text-align:center;
+text-decoration:underline;
+color:white;
+}
+
+#usernav {
+background-color: white;
+float: right
+}
+
+table {
+background-color: white;
+margin-left: auto;
+margin-right: auto;
+}
+
+table, td, th {
+border: 2px solid black;
+color: black;
+padding: 5px;
+}
+
+th {
+color: black;
+font-size: 25px;
+}
+

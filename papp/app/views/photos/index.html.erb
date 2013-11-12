@@ -1,4 +1,5 @@
-<h1>Listing photos</h1>
+<h1><%= image_tag("chibi1.jpg", alt:"Photos") %>
+	<br>Photo Gallery Home</h1>
 
 <table>
   <thead>
@@ -33,10 +34,11 @@
     <% end %>
   </tbody>
 </table>
-
+<table>
 <br>
 <% if user_signed_in? %>
-<%= link_to 'New Photo', new_photo_path %>
+<td><%= link_to 'New Photo', new_photo_path %></td>
 <% else %>
-You Must Register Before Uploading Photos
+<td>You Must Register Before Uploading Photos</td>
 <% end %>
+</table>
