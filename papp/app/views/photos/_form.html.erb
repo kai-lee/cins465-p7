@@ -30,8 +30,7 @@
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
   </div>
-<% end %>
-<% if @photo.user_id.match(current_user.email) %>
+<% elsif @photo.user_id.match(current_user.email) %>
 	<div class="field">
 	<%= f.label :name %><br>
 	<%= f.text_field :name %>
