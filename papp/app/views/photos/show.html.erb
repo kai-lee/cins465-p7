@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @photo.name %>
-</p>
+<table>
+<tr>
+<th><strong>Name:</strong></th>
 <% if user_signed_in? %>
-<p>
-  <strong>Description:</strong>
-  <%= @photo.description %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @photo.tags %>
-</p>
+<th><strong>Description:</strong></th>
+<th><strong>Tags:</strong></th>
 <% end %>
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@photo.picture_url, :width => 600) if @photo.picture.present? %>
-</p>
+<th><strong>Picture:</strong></th>	
+</tr>
+<tr>
+  <td><%= @photo.name %></td>
+
+<% if user_signed_in? %>
+<td>  <%= @photo.description %></td>
+<td>  <%= @photo.tags %></td>
+<% end %>
+
+<td> <%= image_tag(@photo.picture_url, :width => 600) if @photo.picture.present? %></td>
+</table>
+<table>
 <% if user_signed_in? %>
 <% if @photo.user_id.match(current_user.email) %>
-<%= link_to 'Edit', edit_photo_path(@photo) %> | 
+<td><%= link_to 'Edit', edit_photo_path(@photo) %></td> 
 <% end %>
 <% end %>
-<%= link_to 'Back', photos_path %>
+<td><%= link_to 'Back', photos_path %></td>
+</table>

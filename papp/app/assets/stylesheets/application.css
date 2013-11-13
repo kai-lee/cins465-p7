@@ -12,44 +12,69 @@
  *= require_tree .
  */
 
-#usernav {
-padding 10px;
-left: 90%;
-padding-top: 10px;
+ul li  {
+left:10px;
+top:50px;
+width: 100%;
 font-size: 16px;
+color: #FFFFFF;
+background-color: #000000;
 }
 
 body {
-background-image: image-url('/assets/wood.jpg');
+background-image: url(/assets/wood.jpg);
 color: #000000;
 text-align: center;
 }
 
-h1 {
-text-align:center;
-text-decoration:underline;
-color:white;
+#image {
+padding-top: 60px;
+padding-left: 40%;
+padding-right: 40%;
 }
 
-#usernav {
-background-color: white;
-float: right
+h1 {
+text-decoration:underline;
+color:white;
+margin-left:auto;
+margin-right:auto;
 }
 
 table {
-background-color: white;
+background-color: black;
 margin-left: auto;
 margin-right: auto;
 }
 
+table#table2 {
+background-color: black;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+
 table, td, th {
-border: 2px solid black;
-color: black;
+border: 1px solid white;
+color: white;
 padding: 5px;
 }
 
 th {
-color: black;
+color: white;
 font-size: 25px;
 }
 
+#footer {
+position:fixed;
+bottom: 0;
+left: 0;
+right:0;
+padding-top:10px;
+height:30px;
+width: 100%;
+text-align: center;
+background-color: #000000;
+color: #FFFFFF;
+font-size:18px;
+}

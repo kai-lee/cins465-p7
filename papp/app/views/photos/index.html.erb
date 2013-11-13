@@ -1,5 +1,5 @@
-<h1><%= image_tag("chibi1.jpg", alt:"Photos") %>
-	<br>Photo Gallery Home</h1>
+<div id="image"> <%= image_tag("chibi1.jpg") %></div>
+	<h1>Photo Gallery Home</h1>
 
 <table>
   <thead>
@@ -34,7 +34,7 @@
     <% end %>
   </tbody>
 </table>
-<table>
+<table id="table2">
 <br>
 <% if user_signed_in? %>
 <td><%= link_to 'New Photo', new_photo_path %></td>
@@ -42,3 +42,9 @@
 <td>You Must Register Before Uploading Photos</td>
 <% end %>
 </table>
+
+<footer>
+<div id="footer">
+Created by: Kaib 2013
+</div>
+</footer>
