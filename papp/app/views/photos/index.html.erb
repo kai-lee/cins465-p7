@@ -1,6 +1,15 @@
 <div id="image"> <%= image_tag("chibi1.jpg") %></div>
 	<h1>Photo Gallery Home</h1>
-
+<% if user_signed_in? %>
+		<h2>Search by Tags: <%= form_tag(photos_path, :method => 'get') do %>
+		
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", :name => nil %>
+			
+<% end %>
+<% end %>
+</h2>
+<br>
 <table>
   <thead>
     <tr>
@@ -34,6 +43,10 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<br>
+<br>
+<br>
 <table id="table2">
 <br>
 <% if user_signed_in? %>

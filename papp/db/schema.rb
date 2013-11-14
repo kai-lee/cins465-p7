@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112062313) do
+ActiveRecord::Schema.define(version: 20131114213047) do
 
   create_table "photos", force: true do |t|
     t.string   "user_id"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20131112062313) do
     t.text     "description"
     t.text     "tags"
     t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tagdbs", force: true do |t|
+    t.text     "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
