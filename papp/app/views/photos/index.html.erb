@@ -1,7 +1,7 @@
 <div id="image"> <%= image_tag("chibi1.jpg") %></div>
 	<h1>Photo Gallery Home</h1>
 <% if user_signed_in? %>
-		<h2>Search by Tags: <%= form_tag(photos_path, :method => 'get') do %>
+		Search by Tags: <%= form_tag(tags_path, :method => 'get') do %>
 		
 			<%= text_field_tag :search, params[:search] %>
 			<%= submit_tag "Search", :name => nil %>
@@ -16,7 +16,6 @@
       <th>Name</th>
 <% if user_signed_in? %>
       <th>Description</th>
-      <th>Tags</th>
 <% end %>
       <th>Picture</th>
     </tr>
@@ -28,13 +27,12 @@
         <td><%= photo.name %></td>
 	<% if user_signed_in? %>
         <td><%= photo.description %></td>
-	<td><%= photo.tags %></td>
 	<% end %>
         <td><%= image_tag(photo.picture_url, :width => 200) if photo.picture.present? %></td>
         <td><%= link_to 'Show', photo %></td>
 	<% if user_signed_in? %>
 	<td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-	<% if photo.user_id.match(current_user.email) %>
+	<% if photo.user_id==(current_user.id) %>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
 	<% end %>

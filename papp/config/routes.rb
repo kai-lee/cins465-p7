@@ -1,6 +1,15 @@
 Papp::Application.routes.draw do
-  devise_for :users
-  resources :photos
+root 'photos#index'
+
+resources :tags
+
+devise_for :users
+
+  resources :photos do
+	resources :tags, :shallow => true
+end
+
+
 
 #root :to => redirect('/photos')
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,7 +17,6 @@ Papp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-root 'photos#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

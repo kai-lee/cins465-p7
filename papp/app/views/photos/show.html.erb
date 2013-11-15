@@ -4,7 +4,6 @@
 <th><strong>Name:</strong></th>
 <% if user_signed_in? %>
 <th><strong>Description:</strong></th>
-<th><strong>Tags:</strong></th>
 <% end %>
 <th><strong>Picture:</strong></th>	
 </tr>
@@ -13,14 +12,29 @@
 
 <% if user_signed_in? %>
 <td>  <%= @photo.description %></td>
-<td>  <%= @photo.tags %></td>
 <% end %>
 
 <td> <%= image_tag(@photo.picture_url, :width => 600) if @photo.picture.present? %></td>
 </table>
+<br><br><br>
 <table>
+<tr>
+<th> Tags Key </th>
+<th> Tags Value </th>
+</tr>
+<% @photo.tags.each do |t| %>
+	<tr>
+	<td><%= t.tag_key %></td><td><%= t.tag_value %></td>
+	</tr>
+	<% end %>	
+</table>
+<br><br><br>
+
+
+<table>
+<td><%= link_to 'Add Tag', new_photo_tag_path(@photo) %>
 <% if user_signed_in? %>
-<% if @photo.user_id.match(current_user.email) %>
+<% if @photo.user_id==(current_user.id) %>
 <td><%= link_to 'Edit', edit_photo_path(@photo) %></td> 
 <% end %>
 <% end %>

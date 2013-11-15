@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114213047) do
+ActiveRecord::Schema.define(version: 20131115053325) do
 
   create_table "photos", force: true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.text     "tags"
@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 20131114213047) do
     t.datetime "updated_at"
   end
 
-  create_table "tagdbs", force: true do |t|
-    t.text     "tag"
+  create_table "tags", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.string   "tag_key"
+    t.string   "tag_value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -38,8 +38,9 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
+   def extension_white_list
+     %w(jpg jpeg gif png)
+	end
   # end
 
   # Override the filename of the uploaded files:
@@ -47,5 +48,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+def filename
+	if original_filename
+		@name||=Digest::MD5.hexdigest(File.dirname(current_path))
+		"#{@name}.#{file.extension}"
+	end
+end
 
 end
